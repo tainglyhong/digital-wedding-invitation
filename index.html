@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lyhong & Sodane — Wedding Invitation</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Floating music button */
+      .music-floating {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #fff;
+        border: 1px solid #e6edf5;
+        border-radius: 999px;
+        padding: 8px 12px;
+        box-shadow: 0 10px 24px rgba(34, 50, 71, 0.1);
+        font-weight: 800;
+        color: #476a98;
+        cursor: pointer;
+        user-select: none;
+      }
+      .music-floating svg {
+        flex: 0 0 18px;
+      }
+
+      :root {
+        --ocean: #15a2e0;
+        --ocean-600: #0f84bb;
+        --ocean-700: #0b6d99;
+        --blush: #f7b6c5;
+        --ink: #0f355b;
+        --sand: #f6fbff;
+        --ring: rgba(21, 162, 224, 0.25);
+        --shadow: 0 10px 30px rgba(15, 53, 91, 0.12);
+        --radius: 22px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--sand);
+        color: #18324a;
+      }
+      body {
+        font-family: Nunito, system-ui, -apple-system, Segoe UI, Roboto,
+          "Helvetica Neue", Arial, "Khmer OS Battambang", "Noto Sans Khmer",
+          sans-serif;
+        line-height: 1.6;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+      .kh {
+        font-family: "Khmer OS Battambang", "Noto Sans Khmer", Nunito,
+          sans-serif;
+      }
+
+      /* ===== Opening Intro ===== */
+      .intro {
+        position: fixed;
+        inset: 0;
+        z-index: 60;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(
+            900px 300px at 80% -20%,
+            rgba(21, 162, 224, 0.15),
+            transparent 60%
+          ),
+          radial-gradient(
+            800px 250px at 10% -20%,
+            rgba(247, 182, 197, 0.18),
+            transparent 60%
+          ),
+          linear-gradient(165deg, #ffffff 0%, #f6fbff 55%, #e9f6ff 100%);
+      }
+      .intro-card {
+        width: min(560px, 92vw);
+        background: #fff;
+        border-radius: 28px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #e6eef5;
+      }
+      .ribbon {
+        position: absolute;
+        right: -40px;
+        bottom: -40px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 30% 30%,
+          var(--blush),
+          #ffdce5 60%,
+          transparent 61%
+        );
+        filter: blur(6px);
+        opacity: 0.4;
+      }
+      .crest {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 12px;
+      }
+      .couple {
+        font-family: "Playfair Display", serif;
+        text-align: center;
+        color: var(--ink);
+        font-size: clamp(34px, 7.2vw, 56px);
+        line-height: 1.1;
+      }
+      .amp {
+        color: var(--ocean);
+        font-weight: 800;
+      }
+      .date {
+        text-align: center;
+        color: #375b7a;
+        margin-top: 6px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.95rem;
+      }
+      .open-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 18px auto 6px;
+        padding: 14px 20px;
+        border-radius: 999px;
+        border: 0;
+        background: linear-gradient(90deg, var(--ocean), var(--ocean-600));
+        color: #fff;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: 0 8px 22px rgba(21, 162, 224, 0.25);
+      }
+      .mini {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+        font-size: 0.85rem;
+        color: #5b7a95;
+      }
+      .lang-toggle {
+        display: inline-flex;
+        border: 1px solid #e6eef5;
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .lang-toggle button {
+        all: unset;
+        padding: 6px 10px;
+        cursor: pointer;
+      }
+      .lang-toggle button.active {
+        background: var(--ocean);
+        color: #fff;
+        font-weight: 800;
+      }
+      .hidden {
+        display: none !important;
+      }
+
+      /* ===== Global components ===== */
+      .badge {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        background: #fff;
+        border: 1px solid #e6eef5;
+        padding: 6px 12px;
+        border-radius: 999px;
+        box-shadow: var(--shadow);
+      }
+      .title {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .subtitle {
+        color: #446685;
+        font-size: 1.05rem;
+      }
+      .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px;
+        border-radius: 14px;
+        border: 1.5px solid var(--ocean);
+        color: var(--ocean-700);
+        background: #fff;
+        cursor: pointer;
+        font-weight: 800;
+        text-decoration: none;
+      }
+      .btn.primary {
+        background: linear-gradient(90deg, var(--ocean), var(--ocean-600));
+        color: #fff;
+        border-color: transparent;
+      }
+
+      .section {
+        padding: 54px 0;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid #e6eef5;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 22px;
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: 92px 0 56px;
+      }
+      .hero:before {
+        content: "";
+        position: absolute;
+        inset: -80px -10vw auto -10vw;
+        height: 360px;
+        background: radial-gradient(
+            800px 280px at 15% 40%,
+            rgba(247, 182, 197, 0.16),
+            transparent 60%
+          ),
+          radial-gradient(
+            900px 300px at 85% 30%,
+            rgba(21, 162, 224, 0.18),
+            transparent 62%
+          ),
+          linear-gradient(180deg, #ffffff 0%, #f6fbff 70%, #eaf7ff 100%);
+        z-index: 0;
+      }
+      .hero-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 28px;
+        align-items: center;
+      }
+      @media (min-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1.05fr 0.95fr;
+        }
+      }
+
+      .title-v3 {
+        font-size: clamp(38px, 6.5vw, 68px);
+        line-height: 1.08;
+        margin: 6px 0 8px;
+      }
+      .title-v3 .amp {
+        position: relative;
+        color: var(--ocean);
+      }
+      .title-v3 .amp::after {
+        content: "";
+        position: absolute;
+        left: -8px;
+        right: -8px;
+        bottom: -10px;
+        height: 12px;
+        background: linear-gradient(
+          90deg,
+          rgba(21, 162, 224, 0.28),
+          rgba(247, 182, 197, 0.28)
+        );
+        border-radius: 999px;
+        filter: blur(5px);
+      }
+      .badge-v3 {
+        border-radius: 999px;
+      }
+      .subtitle-v3 {
+        max-width: 48ch;
+      }
+
+      /* Glass info card */
+      .details-card {
+        background: rgba(255, 255, 255, 0.78);
+        -webkit-backdrop-filter: saturate(140%) blur(10px);
+        backdrop-filter: saturate(140%) blur(10px);
+        border: 1px solid rgba(230, 238, 245, 0.95);
+        border-top: 4px solid var(--ocean);
+        border-radius: 22px;
+        box-shadow: var(--shadow);
+        padding: 20px;
+      }
+      .info-row {
+        display: flex;
+        align-items: start;
+        gap: 12px;
+      }
+      .info-row svg {
+        flex: 0 0 22px;
+      }
+      .divider {
+        height: 1px;
+        border: 0;
+        background: linear-gradient(90deg, transparent, #e6eef5, transparent);
+        margin: 12px 0;
+      }
+
+      /* Countdown */
+      .countdown {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(70px, 1fr));
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .stat {
+        display: grid;
+        place-items: center;
+        padding: 12px 10px;
+        border-radius: 16px;
+        background: #fff;
+        border: 1px solid #e6eef5;
+      }
+      .stat strong {
+        font-size: clamp(22px, 4.6vw, 30px);
+        line-height: 1;
+        color: var(--ink);
+        letter-spacing: 0.5px;
+      }
+      .stat span {
+        font-size: 0.8rem;
+        color: #5b7a95;
+      }
+
+      /* Waves */
+      .waves {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        height: 120px;
+        z-index: 0;
+      }
+      .wave {
+        position: absolute;
+        left: 0;
+        right: 0;
+      }
+      .wave svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .wave-1 {
+        bottom: 0;
+        opacity: 0.6;
+        animation: float1 8s ease-in-out infinite;
+      }
+      .wave-2 {
+        bottom: 10px;
+        opacity: 0.35;
+        animation: float2 11s ease-in-out infinite;
+      }
+      @keyframes float1 {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(6px);
+        }
+      }
+      @keyframes float2 {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+
+      /* Gallery */
+      .grid {
+        display: grid;
+        gap: 10px;
+      }
+      @media (min-width: 700px) {
+        .grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .photo {
+        aspect-ratio: 4/3;
+        background: linear-gradient(180deg, #eaf6ff, #fff);
+        border: 1px solid #e6eef5;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      /* RSVP */
+      .rsvp form {
+        display: grid;
+        gap: 12px;
+      }
+      .field {
+        display: grid;
+        gap: 6px;
+      }
+      input,
+      select,
+      textarea {
+        padding: 12px 12px;
+        border-radius: 12px;
+        border: 1px solid #dbe8f2;
+        outline: none;
+        font: inherit;
+        background: #fbfeff;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        box-shadow: 0 0 0 4px var(--ring);
+        border-color: var(--ocean);
+      }
+
+      footer {
+        padding: 34px 0 80px;
+        text-align: center;
+        color: #4b6a86;
+      }
+
+      /* Floating hearts */
+      .hearts {
+        pointer-events: none;
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        z-index: 10;
+      }
+      .heart {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(0.9);
+        animation: floatUp linear forwards;
+      }
+      @keyframes floatUp {
+        from {
+          transform: translate(var(--x, 50vw), 105vh) scale(0.9);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.55;
+        }
+        to {
+          transform: translate(calc(var(--x, 50vw) + var(--drift, 40px)), -10vh)
+            scale(1.1);
+          opacity: 0;
+        }
+      }
+
+      /* Unused legacy music style (safe to keep) */
+      .music {
+        display: none;
+      }
+
+      /* Accessibility */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body class="ocean-bg">
+    <!-- ===== Intro Overlay ===== -->
+    <div id="intro" class="intro">
+      <div class="intro-card">
+        <div class="ribbon"></div>
+        <div class="crest">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+            width="28"
+            height="28"
+          >
+            <path
+              d="M12 13c-3.314 0-6 2.239-6 5s2.686 5 6 5 6-2.239 6-5-2.686-5-6-5Zm-3-9 3 3 3-3-3-3-3 3Z"
+              stroke="var(--ocean)"
+              stroke-width="1.5"
+            />
+          </svg>
+          <span
+            style="font-weight: 800; color: var(--ocean-700)"
+            data-i18n="invite"
+            >Wedding Invitation</span
+          >
+          <div class="lang-toggle" style="margin-left: auto">
+            <button id="lang-en" class="active">EN</button>
+            <button id="lang-km">ខ្មែរ</button>
+          </div>
+        </div>
+        <div class="couple">
+          <span id="nameAIntro">Lyhong</span> <span class="amp">&amp;</span>
+          <span id="nameBIntro">Sodane</span>
+        </div>
+        <div class="date" id="introDate">
+          Saturday • 22 November 2025 • Phnom Penh
+        </div>
+        <p
+          style="text-align: center; color: #4a6a86; margin: 10px 0 16px"
+          data-i18n="blurb"
+        >
+          With joyful hearts, we invite you to celebrate our wedding day.
+        </p>
+        <div style="display: flex; justify-content: center">
+          <button id="openInvite" class="open-btn">
+            <svg
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 21s-7.5-4.529-9.5-8.665C.986 9.432 2.52 6 6 6c2.2 0 3.5 1.2 4 2 0.5-0.8 1.8-2 4-2 3.48 0 5.014 3.432 3.5 6.335C19.5 16.471 12 21 12 21Z"
+                stroke="#fff"
+                stroke-width="1.5"
+                fill="rgba(255,255,255,.15)"
+              />
+            </svg>
+            <span data-i18n="open">Open Invitation</span>
+          </button>
+        </div>
+        <div class="mini">
+          <span data-i18n="tip"
+            >Tip: turn on sound for music &amp; vibes ♫</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating hearts -->
+    <div class="hearts" id="hearts"></div>
+
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+      <div class="container hero-grid">
+        <!-- Left: headline & actions -->
+        <div>
+          <span class="badge badge-v3">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              width="18"
+              height="18"
+              aria-hidden="true"
+            >
+              <path
+                d="M7 8c0-2 1.5-3.5 3.5-3.5S14 6 14 8c0 2-1.5 3.5-3.5 3.5S7 10 7 8Zm10 8c0-2 1.5-3.5 3.5-3.5S24 14 24 16c0 2-1.5 3.5-3.5 3.5S17 18 17 16Z"
+                transform="translate(-4 -4)"
+                stroke="var(--ocean)"
+                stroke-width="1.2"
+              />
+            </svg>
+            <strong style="color: var(--ocean-700)" data-i18n="tagline"
+              >You're invited with love</strong
+            >
+          </span>
+
+          <h1 class="title title-v3">
+            <span id="heroNames">
+              <span id="nameA">Lyhong</span> <span class="amp">&amp;</span>
+              <span id="nameB">Sodane</span>
+            </span>
+          </h1>
+
+          <p class="subtitle subtitle-v3" data-i18n="heroLine">
+            Join us as we say “I do” and begin our forever.
+          </p>
+
+          <div class="cta">
+            <a href="#rsvp" class="btn primary">
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2 6h20v12H2zM2 6l10 7 10-7"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+              </svg>
+              <span data-i18n="rsvp">RSVP Now</span>
+            </a>
+            <a href="#details" class="btn">
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M7 2v4M17 2v4M3 9h18M4 6h16v14H4z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+              </svg>
+              <span data-i18n="seeDetails">See Details</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: details card -->
+        <aside class="details-card" id="details" aria-labelledby="detailsTitle">
+          <h2 id="detailsTitle" class="sr-only">Event details</h2>
+
+          <div class="info-row">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z M12 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                stroke="var(--ocean)"
+                stroke-width="1.2"
+              />
+            </svg>
+            <div>
+              <strong data-i18n="venue">Venue</strong>
+              <div id="venueName">The Blue Garden</div>
+              <a
+                id="mapLink"
+                href="https://maps.app.goo.gl/"
+                target="_blank"
+                rel="noopener"
+                style="
+                  color: var(--ocean-700);
+                  font-weight: 800;
+                  text-decoration: none;
+                "
+                >Open Map →</a
+              >
+            </div>
+          </div>
+
+          <div class="info-row" style="margin-top: 10px">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Zm0-14v5l3 2"
+                stroke="var(--ocean)"
+                stroke-width="1.2"
+              />
+            </svg>
+            <div>
+              <strong data-i18n="dateTime">Date & Time</strong>
+              <div id="datePretty">Saturday, 22 November 2025 — 9:30 AM</div>
+            </div>
+          </div>
+
+          <hr class="divider" />
+          <div class="countdown" id="countdown" aria-live="polite">
+            <div class="stat">
+              <strong id="dd">00</strong><span data-i18n="days">Days</span>
+            </div>
+            <div class="stat">
+              <strong id="hh">00</strong><span data-i18n="hours">Hours</span>
+            </div>
+            <div class="stat">
+              <strong id="mm">00</strong
+              ><span data-i18n="minutes">Minutes</span>
+            </div>
+            <div class="stat">
+              <strong id="ss">00</strong
+              ><span data-i18n="seconds">Seconds</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Decorative animated waves -->
+      <div class="waves" aria-hidden="true">
+        <div class="wave wave-1">
+          <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path
+              d="M0,60 C240,120 480,0 720,60 C960,120 1200,20 1440,60 L1440,120 L0,120 Z"
+              fill="url(#grad1)"
+            ></path>
+            <defs>
+              <linearGradient id="grad1" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0%" stop-color="#eaf7ff" />
+                <stop offset="60%" stop-color="#f6fbff" />
+                <stop offset="100%" stop-color="#ffffff" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="wave wave-2">
+          <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path
+              d="M0,80 C240,20 480,140 720,80 C960,20 1200,100 1440,70 L1440,120 L0,120 Z"
+              fill="url(#grad2)"
+            ></path>
+            <defs>
+              <linearGradient id="grad2" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0%" stop-color="#dff2ff" />
+                <stop offset="60%" stop-color="#eaf7ff" />
+                <stop offset="100%" stop-color="#ffffff" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== Our Story ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <h2
+            style="font-family: 'Playfair Display', serif; margin: 0 0 8px"
+            data-i18n="ourStory"
+          >
+            Our Story
+          </h2>
+          <p id="story" style="margin: 0; color: #476b8d">
+            We met by the river on a sunny afternoon. A shy smile, a shared
+            coffee, and a promise to grow together. From then on, every little
+            moment blossomed into something beautiful. We can’t wait to
+            celebrate with you!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Timeline ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <h2
+            style="font-family: 'Playfair Display', serif; margin: 0 0 14px"
+            data-i18n="program"
+          >
+            Program
+          </h2>
+          <div class="timeline" style="display: grid; gap: 16px">
+            <div
+              class="step"
+              style="
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 14px;
+                align-items: start;
+              "
+            >
+              <div
+                class="dot"
+                style="
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 50%;
+                  background: var(--ocean);
+                  box-shadow: 0 0 0 6px var(--ring);
+                "
+              ></div>
+              <div>
+                <div class="time" style="font-weight: 800; color: var(--ink)">
+                  9:00 AM — 9:30 AM
+                </div>
+                <div class="place" style="color: #476b8d" data-i18n="arrival">
+                  Guest Arrival & Welcome Drinks
+                </div>
+              </div>
+            </div>
+            <div
+              class="step"
+              style="
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 14px;
+                align-items: start;
+              "
+            >
+              <div
+                class="dot"
+                style="
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 50%;
+                  background: var(--ocean);
+                  box-shadow: 0 0 0 6px var(--ring);
+                "
+              ></div>
+              <div>
+                <div class="time" style="font-weight: 800; color: var(--ink)">
+                  9:30 AM — 10:15 AM
+                </div>
+                <div class="place" style="color: #476b8d" data-i18n="ceremony">
+                  Wedding Ceremony
+                </div>
+              </div>
+            </div>
+            <div
+              class="step"
+              style="
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 14px;
+                align-items: start;
+              "
+            >
+              <div
+                class="dot"
+                style="
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 50%;
+                  background: var(--ocean);
+                  box-shadow: 0 0 0 6px var(--ring);
+                "
+              ></div>
+              <div>
+                <div class="time" style="font-weight: 800; color: var(--ink)">
+                  10:30 AM — 12:00 PM
+                </div>
+                <div class="place" style="color: #476b8d" data-i18n="reception">
+                  Reception & Photos
+                </div>
+              </div>
+            </div>
+            <div
+              class="step"
+              style="
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 14px;
+                align-items: start;
+              "
+            >
+              <div
+                class="dot"
+                style="
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 50%;
+                  background: var(--ocean);
+                  box-shadow: 0 0 0 6px var(--ring);
+                "
+              ></div>
+              <div>
+                <div class="time" style="font-weight: 800; color: var(--ink)">
+                  12:00 PM — 1:30 PM
+                </div>
+                <div class="place" style="color: #476b8d" data-i18n="lunch">
+                  Lunch & Toasts
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Gallery ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <h2
+            style="font-family: 'Playfair Display', serif; margin: 0 0 14px"
+            data-i18n="gallery"
+          >
+            Gallery
+          </h2>
+          <div class="grid">
+            <div class="photo">
+              <img
+                src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop"
+                alt="Couple 1"
+              />
+            </div>
+            <div class="photo">
+              <img
+                src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1600&auto=format&fit=crop"
+                alt="Couple 2"
+              />
+            </div>
+            <div class="photo">
+              <img
+                src="https://images.unsplash.com/photo-1522673607201-28710701b9ed?q=80&w=1600&auto=format&fit=crop"
+                alt="Couple 3"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RSVP ===== -->
+    <section class="section" id="rsvp">
+      <div class="container">
+        <div class="card rsvp">
+          <h2
+            style="font-family: 'Playfair Display', serif; margin: 0 0 6px"
+            data-i18n="rsvpTitle"
+          >
+            RSVP
+          </h2>
+          <p style="margin: 0 0 16px; color: #476b8d" data-i18n="rsvpNote">
+            Please respond by November 5, 2025.
+          </p>
+
+          <!-- Replace action with your Formspree/endpoint -->
+          <form action="https://formspree.io/f/your-id" method="POST">
+            <div class="field">
+              <label for="fullname" data-i18n="fullName">Full Name</label>
+              <input
+                id="fullname"
+                name="fullname"
+                required
+                placeholder="e.g., Chanthy Kim"
+              />
+            </div>
+            <div class="field">
+              <label for="phone" data-i18n="phone">Phone</label>
+              <input
+                id="phone"
+                name="phone"
+                required
+                placeholder="+855 xx xxx xxx"
+              />
+            </div>
+            <div class="field">
+              <label for="attending" data-i18n="attending"
+                >Will you attend?</label
+              >
+              <select id="attending" name="attending" required>
+                <option value="yes" data-i18n="yes">
+                  Yes, I will be there
+                </option>
+                <option value="no" data-i18n="no">Sorry, can’t make it</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="guests" data-i18n="guests">Number of guests</label>
+              <input
+                id="guests"
+                type="number"
+                min="1"
+                max="10"
+                name="guests"
+                value="1"
+              />
+            </div>
+            <div class="field">
+              <label for="message" data-i18n="message"
+                >Message (optional)</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="3"
+                placeholder="Leave your wishes…"
+              ></textarea>
+            </div>
+            <button class="btn primary" type="submit">
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2 12L22 2 12 22 10 14 2 12Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+              </svg>
+              <span data-i18n="sendRsvp">Send RSVP</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p style="margin: 0 0 6px; font-weight: 800; color: var(--ink)">
+          Lyhong & Sodane
+        </p>
+        <p style="margin: 0; color: #4b6a86" data-i18n="foot">
+          Thank you for sharing our special day. See you soon!
+        </p>
+      </div>
+    </footer>
+
+    <!-- ===== Music: YouTube (Beautiful in White) with fallback audio ===== -->
+    <!-- Hidden YouTube player container -->
+    <div
+      id="ytPlayer"
+      aria-hidden="true"
+      style="
+        position: fixed;
+        right: -9999px;
+        bottom: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      "
+    ></div>
+
+    <!-- Fallback royalty-free piano (Pixabay, no attribution required) -->
+    <audio id="fallbackAudio" preload="auto" loop>
+      <source
+        src="https://soundcloud.com/roneey-kar/beautiful-in-white-westlife?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <!-- Floating toggle -->
+    <div
+      class="music-floating"
+      id="musicToggle"
+      role="button"
+      aria-pressed="false"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        width="18"
+        height="18"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M9 19a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm6-12v9a3 3 0 1 1-2-2.83V5l7-2v4l-5 1Z"
+          stroke="currentColor"
+          stroke-width="1.5"
+        />
+      </svg>
+      <span id="musicText">Play “Beautiful in White”</span>
+    </div>
+
+    <!-- YouTube IFrame API -->
+    <script>
+      (function () {
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.head.appendChild(tag);
+      })();
+    </script>
+
+    <script>
+      // ===== Config (edit these) =====
+      const EVENT = {
+        namesA: "Lyhong",
+        namesB: "Sodane",
+        dateISO: "2025-11-22T09:30:00+07:00",
+        venue: "The Blue Garden",
+        map: "https://maps.app.goo.gl/", // replace with your link
+      };
+
+      // ===== Language strings (EN / KM) =====
+      const L = {
+        en: {
+          invite: "Wedding Invitation",
+          blurb:
+            "With joyful hearts, we invite you to celebrate our wedding day.",
+          open: "Open Invitation",
+          tip: "Tip: turn on sound for music & vibes ♫",
+          tagline: "You're invited with love",
+          heroLine: "Join us as we say “I do” and begin our forever.",
+          rsvp: "RSVP Now",
+          seeDetails: "See Details",
+          venue: "Venue",
+          dateTime: "Date & Time",
+          days: "Days",
+          hours: "Hours",
+          minutes: "Minutes",
+          seconds: "Seconds",
+          ourStory: "Our Story",
+          program: "Program",
+          arrival: "Guest Arrival & Welcome Drinks",
+          ceremony: "Wedding Ceremony",
+          reception: "Reception & Photos",
+          lunch: "Lunch & Toasts",
+          gallery: "Gallery",
+          rsvpTitle: "RSVP",
+          rsvpNote: "Please respond by November 5, 2025.",
+          fullName: "Full Name",
+          phone: "Phone",
+          attending: "Will you attend?",
+          yes: "Yes, I will be there",
+          no: "Sorry, can’t make it",
+          guests: "Number of guests",
+          message: "Message (optional)",
+          sendRsvp: "Send RSVP",
+          foot: "Thank you for sharing our special day. See you soon!",
+        },
+        km: {
+          invite: "សំបុត្រអញ្ជើញពិធីមង្គលការ",
+          blurb:
+            "ដោយសេចក្តីសប្បាយរីករាយ យើងខ្ញុំសូមអញ្ជើញលោកអ្នកចូលរួមរំលែកពេលពិសេសនេះជាមួយគ្នា។",
+          open: "បើកសំបុត្រ",
+          tip: "ណែនាំ: បើកសម្លេងដើម្បីទទួលអារម្មណ៍ភ្លេងផង ♫",
+          tagline: "សូមអញ្ជើញដោយសេចក្តីស្រឡាញ់",
+          heroLine: "សូមអញ្ជើញចូលរួមជាមួយយើងខ្ញុំ ក្នុងពេលវេលាដ៏ស្រស់ស្អាតនេះ។",
+          rsvp: "បញ្ជាក់ការចូលរួម",
+          seeDetails: "មើលព័ត៌មានលម្អិត",
+          venue: "កន្លែងប្រារព្ធ",
+          dateTime: "កាលបរិច្ឆេទ & ពេលវេលា",
+          days: "ថ្ងៃ",
+          hours: "ម៉ោង",
+          minutes: "នាទី",
+          seconds: "វិនាទី",
+          ourStory: "រឿងរ៉ាវរបស់យើង",
+          program: "កម្មវិធី",
+          arrival: "ភ្ញៀវមកដល់ & ភេសជ្ជៈទទួលទាន",
+          ceremony: "ពិធីមង្គលការ",
+          reception: "ពេលទទួលភ្ញៀវ & ថតរូប",
+          lunch: "អាហារថ្ងៃត្រង់ & ការលើកលែងពាក្យសន្ទូត",
+          gallery: "រូបភាព",
+          rsvpTitle: "បញ្ជាក់ការចូលរួម (RSVP)",
+          rsvpNote: "សូមបញ្ជាក់មកមុន ថ្ងៃទី ៥ វិច្ឆិកា ២០២៥។",
+          fullName: "ឈ្មោះពេញ",
+          phone: "លេខទូរស័ព្ទ",
+          attending: "តើអ្នកចូលរួមទេ?",
+          yes: "ចូលរួម",
+          no: "សុំអភ័យទោស មិនអាចមកបាន",
+          guests: "ចំនួនអ្នកភ្ជាប់មក",
+          message: "សារ (ស្រេចចិត្ត)",
+          sendRsvp: "បញ្ជូន",
+          foot: "សូមអរគុណដែលចែករំលែកថ្ងៃពិសេសជាមួយយើង!",
+        },
+      };
+
+      // ===== Apply config =====
+      const intro = document.getElementById("intro");
+      const heartsLayer = document.getElementById("hearts");
+
+      const dd = document.getElementById("dd");
+      const hh = document.getElementById("hh");
+      const mm = document.getElementById("mm");
+      const ss = document.getElementById("ss");
+
+      const datePretty = document.getElementById("datePretty");
+      const introDate = document.getElementById("introDate");
+      const mapLink = document.getElementById("mapLink");
+      const venueName = document.getElementById("venueName");
+
+      const nameAIntro = document.getElementById("nameAIntro");
+      const nameBIntro = document.getElementById("nameBIntro");
+      const nameA = document.getElementById("nameA");
+      const nameB = document.getElementById("nameB");
+
+      nameAIntro.textContent = EVENT.namesA;
+      nameBIntro.textContent = EVENT.namesB;
+      nameA.textContent = EVENT.namesA;
+      nameB.textContent = EVENT.namesB;
+
+      venueName.textContent = EVENT.venue;
+      mapLink.href = EVENT.map;
+
+      const eventDate = new Date(EVENT.dateISO);
+      const fmt = new Intl.DateTimeFormat(undefined, {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+      });
+      datePretty.textContent = fmt.format(eventDate);
+      introDate.textContent = fmt.format(eventDate) + " • Phnom Penh";
+
+      // Countdown
+      function tick() {
+        const now = Date.now();
+        const diff = Math.max(0, eventDate.getTime() - now);
+        const days = Math.floor(diff / 864e5);
+        const hours = Math.floor((diff % 864e5) / 36e5);
+        const mins = Math.floor((diff % 36e5) / 6e4);
+        const secs = Math.floor((diff % 6e4) / 1e3);
+        dd.textContent = String(days).padStart(2, "0");
+        hh.textContent = String(hours).padStart(2, "0");
+        mm.textContent = String(mins).padStart(2, "0");
+        ss.textContent = String(secs).padStart(2, "0");
+      }
+      tick();
+      setInterval(tick, 1000);
+
+      // Open invitation
+      document.getElementById("openInvite").addEventListener("click", () => {
+        intro.classList.add("hidden");
+        burstHearts(24);
+      });
+
+      // Floating hearts
+      function makeHeart(x, delay = 0, dur = 8000) {
+        const el = document.createElement("div");
+        el.className = "heart";
+        el.style.setProperty("--x", x + "vw");
+        el.style.setProperty("--drift", Math.random() * 80 - 40 + "px");
+        el.style.animationDuration = dur + Math.random() * 4000 + "ms";
+        el.style.animationDelay = delay + "ms";
+        el.innerHTML = `
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <path d="M12 21s-7.5-4.529-9.5-8.665C.986 9.432 2.52 6 6 6c2.2 0 3.5 1.2 4 2 0.5-0.8 1.8-2 4-2 3.48 0 5.014 3.432 3.5 6.335C19.5 16.471 12 21 12 21Z"
+              fill="${
+                Math.random() > 0.5 ? "#f7b6c5" : "#baf2e4"
+              }" stroke="none"/>
+          </svg>`;
+        heartsLayer.appendChild(el);
+        setTimeout(() => el.remove(), dur + 6000);
+      }
+      function loopHearts() {
+        makeHeart(Math.random() * 100, 0, 10000 + Math.random() * 4000);
+        setTimeout(loopHearts, 1500 + Math.random() * 1500);
+      }
+      function burstHearts(n) {
+        for (let i = 0; i < n; i++) {
+          makeHeart(Math.random() * 100, i * 40, 6000);
+        }
+      }
+      loopHearts();
+
+      // ===== Music: YouTube + fallback =====
+      const VIDEO_ID = "06-XXOTP3Gc"; // Shane Filan - Beautiful in White (Official)
+      const btn = document.getElementById("musicToggle");
+      const label = document.getElementById("musicText");
+      const fa = document.getElementById("fallbackAudio");
+
+      let ytPlayer = null,
+        ytReady = false,
+        isPlaying = false,
+        useFallback = false;
+
+      window.onYouTubeIframeAPIReady = function () {
+        ytPlayer = new YT.Player("ytPlayer", {
+          videoId: VIDEO_ID,
+          playerVars: {
+            autoplay: 0,
+            controls: 0,
+            modestbranding: 1,
+            rel: 0,
+            playsinline: 1,
+            loop: 1,
+            playlist: VIDEO_ID,
+          },
+          events: {
+            onReady: () => {
+              ytReady = true;
+            },
+            onStateChange: (e) => {
+              if (e.data === YT.PlayerState.PLAYING) {
+                isPlaying = true;
+                useFallback = false;
+                if (!fa.paused) fa.pause();
+                label.textContent = "Pause “Beautiful in White”";
+                btn.setAttribute("aria-pressed", "true");
+              }
+              if (
+                e.data === YT.PlayerState.PAUSED ||
+                e.data === YT.PlayerState.ENDED
+              ) {
+                isPlaying = false;
+                label.textContent = "Play “Beautiful in White”";
+                btn.setAttribute("aria-pressed", "false");
+              }
+            },
+          },
+        });
+      };
+
+      function playYTOrFallback() {
+        if (ytReady && ytPlayer) {
+          try {
+            ytPlayer.playVideo();
+          } catch (e) {
+            playFallback();
+          }
+        } else {
+          playFallback();
+        }
+      }
+      function pauseAll() {
+        if (ytPlayer && ytReady) {
+          try {
+            ytPlayer.pauseVideo();
+          } catch (e) {}
+        }
+        if (!fa.paused) fa.pause();
+        isPlaying = false;
+        label.textContent = "Play “Beautiful in White”";
+        btn.setAttribute("aria-pressed", "false");
+      }
+      function playFallback() {
+        useFallback = true;
+        try {
+          fa.play()
+            .then(() => {
+              isPlaying = true;
+              label.textContent = "Pause music";
+              btn.setAttribute("aria-pressed", "true");
+            })
+            .catch(() => {
+              /* user gesture required */
+            });
+        } catch (e) {}
+      }
+
+      // First interaction anywhere: try to start music
+      window.addEventListener(
+        "pointerdown",
+        function once() {
+          playYTOrFallback();
+          window.removeEventListener("pointerdown", once);
+        },
+        { once: true }
+      );
+
+      // Toggle button
+      btn.addEventListener("click", async () => {
+        if (isPlaying) {
+          pauseAll();
+        } else {
+          playYTOrFallback();
+        }
+      });
+
+      // ===== Language toggle =====
+      const btnEN = document.getElementById("lang-en");
+      const btnKM = document.getElementById("lang-km");
+      function applyLang(lang) {
+        const dict = L[lang];
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (dict[key]) el.textContent = dict[key];
+        });
+        btnEN.classList.toggle("active", lang === "en");
+        btnKM.classList.toggle("active", lang === "km");
+        document.documentElement.lang = lang === "km" ? "km" : "en";
+      }
+      btnEN.addEventListener("click", () => applyLang("en"));
+      btnKM.addEventListener("click", () => applyLang("km"));
+      applyLang("en");
+    </script>
+  </body>
+</html>
